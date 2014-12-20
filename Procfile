@@ -1,0 +1,1 @@
+clock: bundle exec clockwork rates_sms.rb
