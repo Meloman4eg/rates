@@ -8,10 +8,10 @@ include Clockwork
 def get_rate(currency)
   agent = Mechanize.new
 
-  agent.get('http://www.finmarket.ru/currency/' + currency + '/') do |page|
+  agent.get("http://www.finmarket.ru/currency/#{currency}/") do |page|
     price = page.search("div.valvalue").text
-    dynamic = page.search("span.green").text
-    return '1 ' + currency + ' = ' + price + ' рублей (' + dynamic + ')'
+    dynamic = page.search("span.green").text + page.search("span.red").text
+    return "1 #{currency} = #{price} рублей (#{dynamic})"
   end
 end
 
