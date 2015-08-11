@@ -16,10 +16,10 @@ def get_rate(currency)
 end
 
 handler do |job|
-  sms = SmsRu::SMS.new(api_id: "3a5d1480-46b4-fd04-e9ca-bfc280b2018e")
+  sms = SmsRu::SMS.new(api_id: "12321312312-46b4-fd04-e9ca-bfc280b2018e")
   message = get_rate('USD') +'
 ' + get_rate('EUR')
-  sms.send(to: "79603703758", text: message)
+  sms.send(to: "71234567890", text: message)
 end
 
 every(1.day, 'send_sms', :at => '07:00')
